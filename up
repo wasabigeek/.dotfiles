@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+function brewUpdate {
+  echo "Installing latest homebrew"
+  which brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  brew update
+  brew tap 'homebrew/bundle'
+}
+
+function brewInstall {
+  echo "Installing brews"
+  (cd brew && (brew bundle check || brew bundle install))
+}
+
+brewUpdate
+brewInstall
+./dotbot_install
