@@ -63,10 +63,16 @@ plugins=(
   zsh-autosuggestions
 )
 
+# https://docs.brew.sh/Shell-Completion
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit && compinit -i
+  autoload -Uz compinit
+  compinit
+fi
+autoload bashcompinit && bashcompinit
+if type brew &>/dev/null; then
+  # fails as some need bash-completions@2, which needs bash v4
+  # source $(brew --prefix)/etc/bash_completion.d/*
 fi
 
 source $ZSH/oh-my-zsh.sh
