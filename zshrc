@@ -63,6 +63,12 @@ plugins=(
   zsh-autosuggestions
 )
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit && compinit -i
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -104,9 +110,6 @@ source ~/.bashrc
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
-
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -132,3 +135,5 @@ abbrev-alias gpo="git push -u origin"
 abbrev-alias dc="docker-compose"
 abbrev-alias dcu="docker-compose up --build --force-recreate --detach"
 abbrev-alias dcl="docker-compose logs -f"
+
+# source /usr/local/share/antigen/antigen.zsh
