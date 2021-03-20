@@ -15,6 +15,15 @@ function brewInstall {
   (cd brew && (brew bundle check || brew bundle install))
 }
 
+function linkCompletions {
+  # TODO: make this part of installing docker?
+  # https://docs.docker.com/docker-for-mac/#zsh
+  etc=/Applications/Docker.app/Contents/Resources/etc
+  ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker
+  ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
+}
+
 brewUpdate
 brewInstall
 ./dotbot_install
+linkCompletions
