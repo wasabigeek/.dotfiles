@@ -5,8 +5,10 @@
 - clean: ['~']
 
 - link:
-    ~/.zshrc: zshrc
-    ~/.bashrc: bashrc
+    ~/.zshrc: shell/zshrc
+    ~/.bashrc: shell/bashrc
+    ~/.bash_profile: shell/bash_profile
+    ~/.profile: shell/profile
     ~/.default-python-packages: asdf/default-python-packages
 
 - shell:
