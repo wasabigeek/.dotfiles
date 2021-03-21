@@ -11,10 +11,10 @@
         "revision": "3fbca9f51db8e7255f4b2f48daba1e04a2d99ad6"
       },
       "homebrew/cask": {
-        "revision": "6a506eefa6ed460c16734d4eb92d330119b14991"
+        "revision": "cc8e217afae6df04c5872356704a2f7097cecde4"
       },
       "homebrew/core": {
-        "revision": "251dbf0a2964a37ba6f044dc8a8ec774a96c1f8d"
+        "revision": "bb78d403182f019bee64edbda8222db46ca579a3"
       },
       "homebrew/services": {
         "revision": "31bb79235694bdd39143843fae37bdfb297cc5cd"
@@ -197,7 +197,7 @@
         }
       },
       "glib": {
-        "version": "2.66.7",
+        "version": "2.68.0",
         "bottle": {
           "rebuild": 0,
           "cellar": "/usr/local/Cellar",
@@ -205,20 +205,20 @@
           "root_url": "https://homebrew.bintray.com/bottles",
           "files": {
             "arm64_big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/glib-2.66.7.arm64_big_sur.bottle.tar.gz",
-              "sha256": "601f19d91192c89a80611d4b5d6f4721c908b03c60d369f0e5b6dbb9064a5b0e"
+              "url": "https://homebrew.bintray.com/bottles/glib-2.68.0.arm64_big_sur.bottle.tar.gz",
+              "sha256": "d373812a588fa829a3f49d4a1eb69fa8e9181c9ef097275ad28db586bf23e308"
             },
             "big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/glib-2.66.7.big_sur.bottle.tar.gz",
-              "sha256": "d5769584a13c0abc5a7610764d79a69b88be6df7c0fb575120d5a69316ea41cf"
+              "url": "https://homebrew.bintray.com/bottles/glib-2.68.0.big_sur.bottle.tar.gz",
+              "sha256": "7d671e3104d1a3e8d620ef99b4a1c9b237362e60e87362ccd4121b1634289f1e"
             },
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/glib-2.66.7.catalina.bottle.tar.gz",
-              "sha256": "fd6f45492b3a5a51683a231f4b07bd5c9b460892c4b1be580915ff7aed17874e"
+              "url": "https://homebrew.bintray.com/bottles/glib-2.68.0.catalina.bottle.tar.gz",
+              "sha256": "32befec4ce3615c729c72fbb9c3d791e8263cb1412931ed78e8db07251185fb9"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/glib-2.66.7.mojave.bottle.tar.gz",
-              "sha256": "870a1b7bfc1e8325d446bfcc5152ef578bba5ae418d402dd887b6ef568ed3f76"
+              "url": "https://homebrew.bintray.com/bottles/glib-2.68.0.mojave.bottle.tar.gz",
+              "sha256": "7918fa4176001769dc53a6b14431aa9ffce8ebccf1a3201e1d25024182409339"
             }
           }
         }
@@ -1155,11 +1155,15 @@
       "heroku/brew/heroku": {
         "version": "7.51.0",
         "bottle": false
+      },
+      "asdf": {
+        "version": "0.8.0_1",
+        "bottle": false
       }
     },
     "cask": {
       "adoptopenjdk": {
-        "version": "15.0.2,7",
+        "version": "16,36",
         "options": {
           "full_name": "adoptopenjdk"
         }
@@ -1177,7 +1181,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "3.0.7-44-g7e2ba95",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "251dbf0a2964a37ba6f044dc8a8ec774a96c1f8d",
+        "Homebrew/homebrew-core": "bb78d403182f019bee64edbda8222db46ca579a3",
         "CLT": "12.0.26.2",
         "Xcode": "12.4",
         "macOS": "10.15.7"

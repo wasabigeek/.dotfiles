@@ -126,6 +126,9 @@ fi
 # go path
 export PATH="$HOME/go/bin:$PATH"
 
+# ASDF
+. $(brew --prefix asdf)/asdf.sh
+
 # bind mac subword navigation shortcuts
 bindkey "[D" backward-word
 bindkey "[C" forward-word
