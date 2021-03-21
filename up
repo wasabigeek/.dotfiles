@@ -12,7 +12,14 @@ function brewUpdate {
 
 function brewInstall {
   echo "Installing brews"
-  (cd brew && (brew bundle check || brew bundle install))
+  (cd brew && brew bundle install --cleanup)
+}
+
+function asdfInstall {
+  # run after dotfiles linking so asdf-python will use default-python-packages
+  echo "Installing asdf plugins"
+  (cd asdf && (cat .tool-versions | awk '{system ("asdf plugin-add " $1)}'))
+  (cd asdf && (cat .tool-versions | awk '{system("asdf install " $0)}'))
 }
 
 function linkCompletions {
@@ -26,4 +33,5 @@ function linkCompletions {
 brewUpdate
 brewInstall
 ./dotbot_install
+asdfInstall
 linkCompletions

@@ -28,11 +28,9 @@ brew "mkcert"
 brew "nmap"
 brew "node"
 brew "nvm"
-brew "pipenv"
 brew "postgresql", link: false
 brew "postgresql@12"
 brew "postgresql@9.6", link: true
-brew "python@2", link: false
 brew "redis"
 brew "ruby"
 brew "s3cmd"
