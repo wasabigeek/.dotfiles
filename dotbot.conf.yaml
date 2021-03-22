@@ -10,6 +10,12 @@
     ~/.bash_profile: shell/bash_profile
     ~/.profile: shell/profile
     ~/.default-python-packages: asdf/default-python-packages
+    # not exactly dotfiles, but for symlinking convenience
+    ~/bin/:
+      glob: true
+      path: bin/*
+      relink: true
+      create: true
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

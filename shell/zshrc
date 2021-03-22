@@ -119,6 +119,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # go path
 export PATH="$HOME/go/bin:$PATH"
 
+# custom scripts
+export PATH="$HOME/bin:$PATH"
+
 # ASDF
 . $(brew --prefix asdf)/asdf.sh
 

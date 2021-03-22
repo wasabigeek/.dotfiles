@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -e
+
+usage()
+{
+    echo "Update develop / master and checkout a new branch"
+    echo "usage: $0 <branch> | [-h]]"
+    exit 2
+}
+
+
+branch=$1
+shift
+
+if [[ "$branch" = "-h" || "$1" != "" ]]; then
+    usage
+fi
+
+# TODO: extract this out as it's also used in gbc.sh
+if [ -n "$(git branch | grep 'master')" ]; then
+  git checkout master
+  git pull
+fi
+
+if [ -n "$(git branch | grep 'develop')" ]; then
+  git checkout develop
+  git pull
+fi
+# end TODO
+
+git checkout -B "$branch"
