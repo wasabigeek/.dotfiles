@@ -18,8 +18,10 @@ function brewInstall {
 function asdfInstall {
   # run after dotfiles linking so asdf-python will use default-python-packages
   echo "Installing asdf plugins"
-  (cd asdf && (cat .tool-versions | awk '{system ("asdf plugin-add " $1)}'))
+  (cd asdf && (cat .tool-versions | awk '{system("asdf plugin-add " $1)}'))
   (cd asdf && (cat .tool-versions | awk '{system("asdf install " $0)}'))
+  cp asdf/.tool-versions ~/.tool-versions
+  cp asdf/default-python-packages ~/.default-python-packages
 }
 
 function linkCompletions {
@@ -32,6 +34,6 @@ function linkCompletions {
 
 brewUpdate
 brewInstall
-./dotbot_install
 asdfInstall
+./dotbot_install
 linkCompletions

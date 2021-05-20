@@ -9,7 +9,9 @@
     ~/.bashrc: shell/bashrc
     ~/.bash_profile: shell/bash_profile
     ~/.profile: shell/profile
-    ~/.default-python-packages: asdf/default-python-packages
+
+    # dotbot needs python, since that's installed via asdf we handle all the asdf separately
+
     # not exactly dotfiles, but for symlinking convenience
     ~/bin/:
       glob: true
