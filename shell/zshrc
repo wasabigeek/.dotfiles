@@ -140,5 +140,8 @@ abbrev-alias gpo="git push -u origin"
 abbrev-alias dc="docker-compose"
 abbrev-alias dcu="docker-compose up --build --force-recreate --detach"
 abbrev-alias dcl="docker-compose logs -f"
+abbrev-alias tf="terraform"
 
 # source /usr/local/share/antigen/antigen.zsh
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/nkwl/.asdf/installs/terraform/0.14.11/bin/terraform terraform

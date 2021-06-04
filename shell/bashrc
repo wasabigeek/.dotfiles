@@ -10,3 +10,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+complete -C /Users/nkwl/.asdf/installs/terraform/0.14.11/bin/terraform terraform
