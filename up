@@ -2,6 +2,13 @@
 
 set -e
 
+function fancy_echo {
+  local fmt="$1"; shift
+
+  # shellcheck disable=SC2059
+  printf "\\n$fmt\\n" "$@"
+}
+
 function brewUpdate {
   echo "Installing latest homebrew"
   which brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -15,13 +22,37 @@ function brewInstall {
   (cd brew && brew bundle install --cleanup)
 }
 
+function add_or_update_asdf_plugin {
+  local name="$1"
+  local url="$2"
+
+  if ! asdf plugin-list | grep -Fq "$name"; then
+    asdf plugin-add "$name" "$url"
+  else
+    asdf plugin-update "$name"
+  fi
+}
+
+function install_asdf_language {
+  local language="$1"
+  local version
+  version="$(asdf list-all "$language" | grep -v "[a-z]" | tail -1)"
+
+  if ! asdf list "$language" | grep -Fq "$version"; then
+    asdf install "$language" "$version"
+    asdf global "$language" "$version"
+  fi
+}
+
 function asdfInstall {
   # run after dotfiles linking so asdf-python will use default-python-packages
   echo "Installing asdf plugins"
-  (cd asdf && (cat .tool-versions | awk '{system("asdf plugin-add " $1)}'))
-  (cd asdf && (cat .tool-versions | awk '{system("asdf install " $0)}'))
-  cp asdf/.tool-versions ~/.tool-versions
-  cp asdf/default-python-packages ~/.default-python-packages
+  add_or_update_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
+  install_asdf_language "ruby"
+
+  add_or_update_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
+  bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+  install_asdf_language "nodejs"
 }
 
 function linkCompletions {
