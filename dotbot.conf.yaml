@@ -6,9 +6,7 @@
 
 - link:
     ~/.zshrc: shell/zshrc
-    ~/.bashrc: shell/bashrc
-    ~/.bash_profile: shell/bash_profile
-    ~/.profile: shell/profile
+    ~/.gitconfig: git/gitconfig
 
     # dotbot needs python, since that's installed via asdf we handle all the asdf separately
 
