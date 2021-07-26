@@ -5,7 +5,9 @@
 - clean: ['~']
 
 - link:
-    ~/.zshrc: shell/zshrc
+    ~/.zshrc:
+      force: true
+      path: shell/zshrc
     ~/.gitconfig: git/gitconfig
 
     # dotbot needs python, since that's installed via asdf we handle all the asdf separately

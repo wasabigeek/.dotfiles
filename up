@@ -10,9 +10,7 @@ function fancy_echo {
 }
 
 function brewUpdate {
-  echo "Installing latest homebrew"
-  which brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
+  echo "Updating Homebrew"
   brew update
   brew tap 'homebrew/bundle'
 }
@@ -67,6 +65,7 @@ function linkCompletions {
 
 brewUpdate
 brewInstall
-asdfInstall
 ./dotbot_install
+source ~/.zshrc
+asdfInstall
 linkCompletions

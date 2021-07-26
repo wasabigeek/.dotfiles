@@ -3,26 +3,45 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
-# Unix
-brew "git"
-brew "openssl"
-brew "zsh"
-# Programming language prerequisites
-brew "libyaml" # should come after OpenSSL
+# GNU File, Shell, and Text utilities
 brew "coreutils"
-cask "gpg-suite"
-brew "libpq"
+# YAML Parser
+brew "libyaml"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Library for command-line editing
 brew "readline"
-brew "zlib"
-# Package managers, CLIs
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Official Amazon AWS command-line interface
 brew "awscli"
-brew "gh" # github
-brew "bash-completion"
-brew "heroku/brew/heroku"
-# Misc
-brew "imagemagick" # for Rails to work with images
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Postgres C API library
+brew "libpq"
+# Object-relational database system
 brew "postgresql", link: false
+# Persistent key-value database, with built-in net interface
 brew "redis"
+# Executes a program periodically, showing output fullscreen
 brew "watch"
+# Tracks most-used directories to make cd smarter
 brew "z"
+# General-purpose lossless data-compression library
+brew "zlib"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Tools to protect your emails and files
+cask "gpg-suite"
+# Open-source code editor
+cask "visual-studio-code"

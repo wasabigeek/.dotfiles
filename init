@@ -44,11 +44,15 @@ update_shell() {
     sudo sh -c "echo $shell_path >> /etc/shells"
   fi
   sudo chsh -s "$shell_path" "$USER"
+
+  if ! [ -f ~/.oh-my-zsh ] ; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  fi
 }
 
 case "$SHELL" in
   */zsh)
-    if [ "$(command -v zsh)" != '/usr/local/bin/zsh' ] ; then
+    if [ "$(command -v zsh)" != "$HOMEBREW_PREFIX/bin/zsh" ] ; then
       update_shell
     fi
     ;;
@@ -112,6 +116,9 @@ if ! [ -d ~/dev ]; then
   gh repo clone wasabigeek/dotfiles ~/dev/dotfiles
 fi
 
-fancy_echo "Next steps:"
-fancy_echo "- Run 'open /Applications/Docker.app' to complete Docker setup."
-fancy_echo "- Setup dotfiles."
+# TODO: Find a better way to do this. Needed for ~/.zshrc to load.
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo "Next steps:"
+echo "- Run 'open /Applications/Docker.app' to complete Docker setup."
+echo "- Setup dotfiles."
