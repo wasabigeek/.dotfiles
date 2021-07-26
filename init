@@ -63,7 +63,7 @@ if ! command -v brew >/dev/null; then
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
   # set Homebrew paths (see install.sh)
-  eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 fi
 
 if brew list | grep -Fq brew-cask; then
@@ -73,10 +73,45 @@ fi
 
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force # https://github.com/Homebrew/brew/issues/1151
+brew install gh
+brew install homebrew/cask/docker
+brew install visual-studio-code
 
-# fancy_echo "Update heroku binary ..."
-# brew unlink heroku
-# brew link --force heroku
-gem update --system
-# number_of_cores=$(sysctl -n hw.ncpu)
-# bundle config --global jobs $((number_of_cores - 1))
+if ! [ -d ~/.ssh ]; then
+  fancy_echo "Generating ssh key ..."
+  fancy_echo "What email do you want to use?"
+  read EMAIL
+  ssh-keygen -t ed25519 -C "$EMAIL"
+
+  if ! [ -f ~/.ssh/config ]; then
+    fancy_echo "Creating ssh config file..."
+    touch ~/.ssh/config
+    echo "Host *" >> ~/.ssh/config
+    echo "  AddKeysToAgent yes" >> ~/.ssh/config
+    echo "  UseKeychain yes" >> ~/.ssh/config
+    echo "  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
+  else
+    fancy_echo "ssh config file exists, modify according to https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+  fi
+
+  eval "$(ssh-agent -s)"
+  ssh-add -K ~/.ssh/id_ed25519
+
+  fancy_echo "Adding your ssh-key to GitHub ..."
+  fancy_echo "Authenticating the CLI with GitHub ..."
+  # TODO: use refresh with scopes if logged in (`gh auth status`)
+  gh auth login --web --scopes write:public_key
+  fancy_echo "What do you want to name this key? (e.g. personal laptop)"
+  read SSH_KEY_TITLE
+  gh ssh-key add ~/.ssh/id_ed25519.pub --title "$SSH_KEY_TITLE"
+fi
+
+if ! [ -d ~/dev ]; then
+  mkdir ~/dev
+  fancy_echo "Download dotfiles ..."
+  gh repo clone wasabigeek/dotfiles ~/dev/dotfiles
+fi
+
+fancy_echo "Next steps:"
+fancy_echo "- Run 'open /Applications/Docker.app' to complete Docker setup."
+fancy_echo "- Setup dotfiles."
