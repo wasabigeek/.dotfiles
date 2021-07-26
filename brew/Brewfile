@@ -24,7 +24,7 @@ brew "imagemagick"
 # Postgres C API library
 brew "libpq"
 # Object-relational database system
-brew "postgresql", link: false
+brew "postgresql"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Executes a program periodically, showing output fullscreen

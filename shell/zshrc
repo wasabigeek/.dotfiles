@@ -87,6 +87,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  asdf
   git
   zsh-autosuggestions
 )
@@ -141,9 +142,6 @@ export PATH="$HOME/go/bin:$PATH"
 # custom scripts
 export PATH="$HOME/bin:$PATH"
 
-# ASDF
-. $(brew --prefix asdf)/asdf.sh
-
 # bind mac subword navigation shortcuts
 bindkey "[D" backward-word
 bindkey "[C" forward-word
@@ -164,5 +162,5 @@ bindkey "[C" forward-word
 complete -o nospace -C /Users/nkwl/.asdf/installs/terraform/0.14.11/bin/terraform terraform
 
 # MacOS: for compilers to find zlib
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
+export LDFLAGS="-L${HOMEBREW_PREFIX}/opt/zlib/lib"
+export CPPFLAGS="-I${HOMEBREW_PREFIX}/opt/zlib/include"

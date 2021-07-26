@@ -108,6 +108,7 @@ if ! [ -d ~/.ssh ]; then
   fancy_echo "What do you want to name this key? (e.g. personal laptop)"
   read SSH_KEY_TITLE
   gh ssh-key add ~/.ssh/id_ed25519.pub --title "$SSH_KEY_TITLE"
+  gh config set git_protocol ssh
 fi
 
 if ! [ -d ~/dev ]; then
