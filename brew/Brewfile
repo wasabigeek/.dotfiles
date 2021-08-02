@@ -43,5 +43,7 @@ brew "heroku/brew/heroku"
 cask "docker"
 # Tools to protect your emails and files
 cask "gpg-suite"
+# Native GUI tool for relational databases
+cask "tableplus"
 # Open-source code editor
 cask "visual-studio-code"

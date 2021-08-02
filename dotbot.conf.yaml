@@ -9,6 +9,7 @@
       force: true
       path: shell/zshrc
     ~/.gitconfig: git/gitconfig
+    ~/.tool-versions: asdf/tool-versions
 
     # dotbot needs python, since that's installed via asdf we handle all the asdf separately
 

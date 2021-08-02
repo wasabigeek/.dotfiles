@@ -161,6 +161,6 @@ bindkey "[C" forward-word
 
 complete -o nospace -C /Users/nkwl/.asdf/installs/terraform/0.14.11/bin/terraform terraform
 
-# MacOS: for compilers to find zlib
-export LDFLAGS="-L${HOMEBREW_PREFIX}/opt/zlib/lib"
-export CPPFLAGS="-I${HOMEBREW_PREFIX}/opt/zlib/include"
+# MacOS: for compilers
+export LDFLAGS="-L${HOMEBREW_PREFIX}/opt/zlib/lib -L${HOMEBREW_PREFIX}/opt/openssl/lib"
+export CPPFLAGS="-I${HOMEBREW_PREFIX}/opt/zlib/include -I${HOMEBREW_PREFIX}/opt/openssl/include"
