@@ -43,6 +43,8 @@ brew "heroku/brew/heroku"
 cask "docker"
 # Tools to protect your emails and files
 cask "gpg-suite"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
 # Native GUI tool for relational databases
 cask "tableplus"
 # Open-source code editor
