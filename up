@@ -51,6 +51,8 @@ function asdfInstall {
   add_or_update_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
   bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
   install_asdf_language "nodejs"
+
+  add_or_update_asdf_plugin "terraform" "https://github.com/asdf-community/asdf-hashicorp.git"
 }
 
 function linkCompletions {

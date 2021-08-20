@@ -87,7 +87,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  asdf
+  # asdf doesn't seem to work
   git
   zsh-autosuggestions
   zsh-z
@@ -124,6 +124,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Install ASDF properly
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 # https://docs.brew.sh/Shell-Completion
 if type brew &>/dev/null; then
@@ -158,7 +160,7 @@ bindkey "[C" forward-word
 # abbrev-alias dcl="docker-compose logs -f"
 # abbrev-alias tf="terraform"
 
-complete -o nospace -C /Users/nkwl/.asdf/installs/terraform/0.14.11/bin/terraform terraform
+# complete -o nospace -C /Users/nkwl/.asdf/installs/terraform/0.14.11/bin/terraform terraform
 
 # MacOS: for compilers
 export LDFLAGS="-L${HOMEBREW_PREFIX}/opt/zlib/lib -L${HOMEBREW_PREFIX}/opt/openssl/lib"
