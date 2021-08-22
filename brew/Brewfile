@@ -39,13 +39,23 @@ brew "zsh"
 brew "zsh-autosuggestions"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
+# Screen capturing tool
+cask "cleanshot"
 # App to build and share containerized applications and microservices
 cask "docker"
 # Tools to protect your emails and files
 cask "gpg-suite"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# App to write, plan, collaborate, and get organized
+cask "notion"
+# Team communication and collaboration software
+cask "slack"
+# Music streaming service
+cask "spotify"
 # Native GUI tool for relational databases
 cask "tableplus"
 # Open-source code editor
 cask "visual-studio-code"
+# Desktop client for WhatsApp
+cask "whatsapp"
