@@ -87,7 +87,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  # asdf doesn't seem to work
+  asdf
   git
   zsh-autosuggestions
   zsh-z
@@ -124,8 +124,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Install ASDF properly
-. $(brew --prefix asdf)/libexec/asdf.sh
+# Install ASDF properly (seems not needed on ARM? Or maybe clean install.)
+# . $(brew --prefix asdf)/libexec/asdf.sh
 
 # https://docs.brew.sh/Shell-Completion
 if type brew &>/dev/null; then
