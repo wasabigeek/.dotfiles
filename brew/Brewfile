@@ -27,6 +27,8 @@ brew "libpq"
 brew "postgresql"
 # Persistent key-value database, with built-in net interface
 brew "redis"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Tracks most-used directories to make cd smarter
@@ -39,6 +41,10 @@ brew "zsh"
 brew "zsh-autosuggestions"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Lock/unlock Apple computers using the proximity of a bluetooth low energy device
+cask "bleunlock"
 # Screen capturing tool
 cask "cleanshot"
 # App to build and share containerized applications and microservices
@@ -47,8 +53,12 @@ cask "docker"
 cask "gpg-suite"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Shows the next meeting in the menu bar
+cask "meetingbar"
 # App to write, plan, collaborate, and get organized
 cask "notion"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Team communication and collaboration software
 cask "slack"
 # Music streaming service
